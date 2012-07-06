@@ -9,11 +9,13 @@ distinct prototypes.  Obviously, at the beginning, we failed to divide
 and conquer and had to do much more work. But then we made a comparison
 of our approaches and ended up finishing really well.
 
-Prototype 1 ( by Tomasz Sobutka ) with breadth-first search
-(BFS). Java + Swing
+Prototype 1 ( by Tomasz Sobutka ) with breadth-first search (BFS).
+Java + Swing
 
 Prototype 2 ( by Artur Skonecki ) with circle packing.
 Python 2.5 + PyGame 1.7.1
+Screenshot:
+https://github.com/skoneka/pro_genetic/raw/master/doc/app-prot2.png
 
 Authors:
 Artur Skonecki https://github.com/skoneka/

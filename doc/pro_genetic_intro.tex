@@ -1,0 +1,64 @@
+\documentclass[bibtotocnumbered, headsepline,normalheadings,12pt,polish]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{tmargin=25mm,bmargin=25mm,lmargin=30mm,rmargin=30mm}
+\usepackage{babel}
+\setlength\parindent{0pt}
+\usepackage{graphics}
+\usepackage{floatflt}
+\usepackage{scrpage}
+\usepackage{alltt}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{moreverb}
+\usepackage{enumerate}
+
+\pagestyle{headings}
+\begin{document}
+\title{\textbf{Implementacja algorytmu genetycznego.\\ Wstęp.}\\
+\small{Algorytmy i Struktury Danych\\ Wydział Elektryczny, Politechnika Warszawska}}
+\author{Tomasz Sobutka \and Artur Skonecki \and Prowadzący: Bartosz Chaber}
+\date{Wygenerowano: \today}
+\maketitle
+
+\chapter{Wstęp}
+\section{Algorytmy genetyczne }
+Służą do wyznaczenia najlepszego rozwiązania złożonego problemu ze względu na przyjęte kryterium(wskaźnik) jakości. Nazwa nie przypadkowo kojarzy się z biologią, gdyż autor tej metody inspirował się teorią Darwina. Algorytmy te chechują się tym, że dobrze znajdują naraz więcej niż jedno minimum lokalne. Są stosowane wtedy gdy niemożliwe jest przejrzenie całego zbioru rozwiązań, ale łatwo można dobrać kryteria jakości rozwiązania. 
+ 
+\section{ Przebieg algorytmu}
+\begin{enumerate}
+    \item Tworzona jest początkowa populacja osobników
+    \item Dokonywana jest selekcja osobników. Te najlepsze będą poddane procesowi reprodukcji.
+    \item Przeprowadzane są operacje krzyżowania i mutacji na wyselekcjonowanych osobnikach.
+    \item Sprawdzane jest najlepsze rozwiązanie . Jeśli jest ono wystarczająco dobre algorytm kończy działanie. 
+    \item Na kolejnym pokoleniu dokonywana jest selekcja (żeby utrzymać stałą liczbę osobników). Algorytm wraca do punktu 3.
+\end{enumerate}
+
+\section{Chromosom}
+Jest to struktura danych, określająca danego osobnika. Innymi słowy są to cechy, które umożliwiają znalezienie rozwiązania problemu. Chromosom składa się z pojedynczych genów. Zestaw genów, który charakteryzuje konkretnego osobnika to genotyp.
+
+\section{ Populacja początkowa}
+Stworzenie początkowej populacji może być wykonane na różne sposoby. Można wylosować całą populację. Można zaprojektować kilka rozwiązań odwołując się do swojej wiedzy o problemie a resztę osobników dobrać losowo. Można również posłużyć się już wcześniej wyprodukowanymi osobnikami z poprzednich przebiegów algorytmu. Ważny jest też odpowiedni dobór liczebności. Zbyt duża populacja może powodować duże zużycie zasobów sprzętowych, zbyt mała słabą jakość wyników.
+
+\section{ Funkcja przystosowania}
+ Funkcja ta ocenia jakośc rozwiązania na podstawie wartości cech. Jest ona obliczana dla każdego osobnika i sprawdzana jest przydatność osobnika w populacji. Na podstawie wartości tej funkcji przeprowadzana jest selekcja.
+
+ \section{ Metody selekcji}
+\begin{itemize}
+    \item Koło ruletki – Im lepszy jest dany osobnik tym ma większą szansę na zostanie w populacji. Ten algorytm nie sprawdza sie zbyt dobrze ze względu na możliwą eliminację najlepszych rozwiązań, z drugiej strony mamy wtedy większą rożnorodność osobników.
+    \item Metoda rankingowa – Ustawiamy wszystkie osobniki na liście według wartości funkcji dostosowania i bierzemy najlepsze osobniki. Metoda ta ma jednak wadę w postaci przedwczesnej zbieżności do pewnej grupy rozwiązań. 
+    \item Metoda turniejowa – Tutaj dzielimy populację losowo na małe grupy, po czym z każdej grupy wybieramy dwa najlepsze osobniki, które będą stanowić parę rodziców przyszłego potomstwa. Ta metoda eliminuje częściowo wady wyżej wymienionych metod.
+\end{itemize}
+\section{ Krzyżowanie}
+Polega na łączeniu dwóch genotypów w jeden. Może być zrealizowane na różne sposoby. Na przykład część genotypu(niekoniecznie połowa) wzięta z pierwszego genotypu, reszta z drugiego. Można też losować przy każdym genie, z którego genotypu będzie wzięty dany gen.
+
+\section{ Mutacja}
+Jest to metoda, która przeprowadza niewielkie zmiany w genotypie po to by różnicować rozwiązania. Jej prawdopodobieństo jest na tyle małe by nie wprowadzić efektu odwrotnego.
+
+\section{ Zastosowania algorytmów genetycznych  }
+Rozwiązywanie problemów NP-trudnych. Są to zadania, gdzie nie jest dobrze poznany sposób rozwiązania problemu, jednak znany jest sposób oceny rozwiązania. Przy takich problemach algorytmy genetyczne radzą sobie bardzo dobrze szybko znajdując dobre rozwiązanie.
+Przykładem, gdzie z powodzeniem stosuje się algorymy genetyczne jest znalezienie odpowiedniego rozmieszczenia kontenerów różnej wielkości na statku, tak aby środek ciężkości znajdował się możliwie po środku, gdyż w przeciwnym wypadku statek będzie niestabilny.
+
+
+\end{document}

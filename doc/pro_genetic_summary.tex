@@ -1,0 +1,94 @@
+\documentclass[bibtotocnumbered, headsepline,normalheadings,12pt,polish]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{tmargin=25mm,bmargin=25mm,lmargin=30mm,rmargin=30mm}
+\usepackage{babel}
+\begin{document}
+\chapter*{Porównanie prototypów}
+\begin{tabular}{| p{3cm} || p{6cm} | p{6cm} |}
+\hline
+ & Prototyp 1 & Prototyp 2 \\
+\hline
+\hline
+Zastosowany algorytm & Breadth First Search ( przeszukiwanie wszerz ) & Circle Packing \\
+\hline
+Zastosowane narzędzia & Java, Swing & Python, PyGame \\
+\hline
+
+Zasada działania funkcji oceny &
+$ (wygoda-koszt)*bfs/dlugosc $
+\begin{verbatim}
+Miejsce   siedzące   stojące
+Wygoda    7          3
+Koszt     3          1
+\end{verbatim}
+&
+$ komfort + koszt + pojemność $
+\begin{itemize}
+\item komfort ( liczba siedzeń )
+\item koszt ( przesteń zajmowana przez siedzeń i wolna przestrzeń )
+\item pojemność ( całkowita liczba pasażerów w autobusie )
+\item wagi  ( Ffactor-comfort, Ffactor-cost, Ffactor-capacity)
+\item ceny ( Fseat-cost, Fspace-cost )
+\item wartości minimalne i maksymalne
+\end{itemize}
+\\
+\hline
+Kodowanie genotypu & \begin{itemize}
+    \item szerokość w liczbie mieszczących się w kolumnie ludzi
+    \item  długość w liczbie mieszczących się w rzędzie ludzi
+    \item rozmieszczenie siedzeń i miejsc stojących
+\end{itemize}
+&
+\begin{itemize}
+    \item długość
+    \item szerokość
+    \item maksymalna liczba miejsc siedzących
+    \item liczba rzędów
+    \item odległość między rzędami
+    \item parametr określający co ile siedzeń w rzędzie występuje separator
+\end{itemize}
+\\
+\hline
+\end{tabular}
+
+
+\begin{tabular}{| p{3cm} || p{6cm} | p{6cm} |}
+\hline
+ & Prototyp 1 & Prototyp 2 \\
+\hline
+\hline
+Selekcja osobników &
+\begin{itemize}
+    \item metoda rankingowa 
+    \item elitizm
+\end{itemize}
+&
+\begin{itemize}
+    \item ruletka 
+    \item elitizm
+\end{itemize}
+\\
+\hline
+Krzyżowanie osobników &
+\begin{itemize}
+\item Losowanie osobnika w którym zapisana jest pozycja siedzenia.
+\item Podział autobusów na 3 kolumny i wymieszanie z drugim osobnikiem.
+\end{itemize}
+&
+\begin{itemize}
+\item Łączenie genotypów na ``suwak''
+\end{itemize}
+\\
+\hline
+Mutacja & Jedno z miejsc ulego transformacji (osobniki wg. prawdopodobieństwa) & na losowej liczbie pozycji zostaje przypisana losowa wartość ( osobniki wg. prawdopodobieństwa ) \\
+\hline
+Szybkość działania & Wydajny obliczeniowo & Potrzeba dość dużej mocy obliczeniowej podczas symulowania większej liczby pasażerów. \\
+\hline
+Wyniki & Zastosowanie BFS umożliwia programowi ustalenie ścieżek dostępu do wszystkich siedzeń nawet przy skomplikowanym układzie autobusu. & Dzięki zastosowaniu algorytmu Circle Packing możliwe staje się dość dokładne ustalenie liczby osób która jest w stanie zmieścić się w autobusie. \\
+\hline
+\end{tabular}
+\end{document}
+\end{document}
+
